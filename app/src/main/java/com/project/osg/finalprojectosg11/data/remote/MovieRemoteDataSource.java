@@ -13,7 +13,7 @@ public class MovieRemoteDataSource implements MovieDataSource {
 
     @Override
     public void getListMovies(final GetMoviesCallback callback) {
-        Call<Movie> call = apiInterface.getAllPeople();
+        Call<Movie> call = apiInterface.getAllFilm();
         call.enqueue(new Callback<Movie>() {
             @Override
             public void onResponse(Call<Movie> call, Response<Movie> response) {

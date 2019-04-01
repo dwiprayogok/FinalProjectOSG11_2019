@@ -5,23 +5,23 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-import com.project.osg.finalprojectosg11.model.MovieDetail;
+import com.project.osg.finalprojectosg11.model.PeopleDetail;
 
 
-@Database(entities = {MovieDetail.class}, version = 1,exportSchema = false)
-public abstract class MovieDataBase extends RoomDatabase {
+@Database(entities = {PeopleDetail.class}, version = 1,exportSchema = false)
+public abstract class PeopleDataBase extends RoomDatabase {
 
-    private static MovieDataBase INSTANCE;
+    private static PeopleDataBase INSTANCE;
 
-    public abstract MovieDao movieDao();
+    public abstract PeopleDao peopleDao();
 
     private static final Object sLock = new Object();
 
-    public static MovieDataBase getInstance(Context context) {
+    public static PeopleDataBase getInstance(Context context) {
         synchronized (sLock) {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                        MovieDataBase.class, "Film.db")
+                        PeopleDataBase.class, "People.db")
                         .build();
             }
             return INSTANCE;

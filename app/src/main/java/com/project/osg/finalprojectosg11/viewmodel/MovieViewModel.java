@@ -27,7 +27,7 @@ public class MovieViewModel {
         movieRepository.getListMovies(new MovieDataSource.GetMoviesCallback() {
             @Override
             public void onMovieLoaded(Movie data) {
-                movieNavigator.loadListTeam(data.getMovie());
+                movieNavigator.loadListTeam(data.getFilms());
             }
 
             @Override

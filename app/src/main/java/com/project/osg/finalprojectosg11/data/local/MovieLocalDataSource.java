@@ -36,11 +36,11 @@ public class MovieLocalDataSource  implements MovieDataSource {
     }
 
 
-    public void saveDataMovie(final List<MovieDetail> peopleDetail){
+    public void saveDataMovie(final List<MovieDetail> movieDetail){
         Runnable runnable= new Runnable() {
             @Override
             public void run() {
-                movieDao.insertPeople(peopleDetail);
+                movieDao.insertMovie(movieDetail);
             }
         };
         new Thread(runnable).start();
