@@ -1,6 +1,7 @@
 package com.project.osg.finalprojectosg11.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,14 @@ public class ListMovieActivity extends AppCompatActivity implements MovieNavigat
     private List<MovieDetail> dataListMovie;
 
     private MovieDetail movieDetail;
+
+    public static final String TAG_TITLE = "TITLE";
+    public static final String TAG_EPISODE = "EPISODE";
+    public static final String TAG_OPENING_CRAWL = "OPENING_CRAWL";
+    public static final String TAG_DIRECTOR = "DIRECTOR";
+    public static final String TAG_PRODUCER = "PRODUCER";
+    public static final String TAG_RELEASE = "RELEASE";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +65,16 @@ public class ListMovieActivity extends AppCompatActivity implements MovieNavigat
         recyclerview.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerview, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
+                movieDetail = dataListMovie.get(position);
+                Bundle bundle = new Bundle();
+                bundle.putString(TAG_TITLE, movieDetail.title);
+                bundle.putString(TAG_EPISODE, movieDetail.episode_id);
+                bundle.putString(TAG_OPENING_CRAWL, movieDetail.opening_crawl);
+                bundle.putString(TAG_DIRECTOR, movieDetail.director);
+                bundle.putString(TAG_PRODUCER, movieDetail.producer);
+                bundle.putString(TAG_RELEASE, movieDetail.release_date);
+//                intent.putExtra("name", listPeople.getName()); //you can name the keys whatever you like
+                startActivity(new Intent(getApplicationContext(), Detail_Activity.class).putExtras(bundle));
             }
 
             @Override

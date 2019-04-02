@@ -8,6 +8,9 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         android:id="@+id/judul"
         android:text="JUDUL FILM"/>
 
@@ -16,23 +19,31 @@
         android:layout_margin="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:id="@+id/episode"
         android:text="EPISODE FILM"/>
 
 
     <TextView
-        android:layout_below="@+id/episode"
-        android:layout_margin="8dp"
+        android:id="@+id/isi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/isi"
-        android:text="ISI FILMNYA DISINI YA GAN"/>
+        android:layout_below="@+id/episode"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="ISI FILMNYA DISINI YA GAN" />
 
 
     <TextView
         android:layout_below="@+id/isi"
         android:layout_margin="8dp"
         android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:id="@+id/producer"
         android:text="PRODUCER"/>
@@ -41,6 +52,7 @@
         android:layout_below="@+id/producer"
         android:layout_margin="8dp"
         android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:id="@+id/director"
         android:text="DIRECTOR"/>
@@ -51,6 +63,7 @@
         android:layout_margin="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:id="@+id/tanggal_release"
         android:text="12 - 03 - 2019"/>
 
