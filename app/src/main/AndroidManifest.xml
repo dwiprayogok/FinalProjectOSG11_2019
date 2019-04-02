@@ -23,7 +23,9 @@
         <activity android:name=".view.ListMovieActivity">
 
         </activity>
-        <activity android:name=".view.Detail_Activity">
+        <activity
+
+            android:name=".view.Detail_Activity">
 
         </activity>
     </application>

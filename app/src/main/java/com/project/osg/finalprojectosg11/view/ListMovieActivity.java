@@ -30,7 +30,7 @@ import java.util.List;
 
 public class ListMovieActivity extends AppCompatActivity implements MovieNavigator {
 
-    String TAG = "ListMovieActivity";
+
     private MovieViewModel movieViewModel;
     private RecyclerView recyclerview;
 

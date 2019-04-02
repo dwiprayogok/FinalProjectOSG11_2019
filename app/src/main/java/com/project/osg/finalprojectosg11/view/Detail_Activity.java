@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.project.osg.finalprojectosg11.R;
 
 public class Detail_Activity extends AppCompatActivity {
+    String TAG = "Detail_Activity";
 
     private TextView txtTitle, txtEpisode, txtSpoiler,txtProducer, txtDirector, txtReleaseDate;
     private Bundle bundle;
