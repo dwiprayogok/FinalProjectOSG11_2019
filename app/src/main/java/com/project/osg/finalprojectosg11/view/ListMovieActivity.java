@@ -73,7 +73,6 @@ public class ListMovieActivity extends AppCompatActivity implements MovieNavigat
                 bundle.putString(TAG_DIRECTOR, movieDetail.director);
                 bundle.putString(TAG_PRODUCER, movieDetail.producer);
                 bundle.putString(TAG_RELEASE, movieDetail.release_date);
-//                intent.putExtra("name", listPeople.getName()); //you can name the keys whatever you like
                 startActivity(new Intent(getApplicationContext(), Detail_Activity.class).putExtras(bundle));
             }
 
