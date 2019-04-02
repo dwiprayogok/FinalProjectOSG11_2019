@@ -10,10 +10,10 @@ import retrofit2.http.Headers;
 public interface ApiInterface {
 
     @Headers("Content-Type: application/json")
-    @GET("/api/people/")
+    @GET("/api/films/")
     Call<Movie> getAllFilm();
 
     @Headers("Content-Type: application/json")
-    @GET("/api/film/")
+    @GET("/api/people/")
     Call<People> getAllPeople();
 }

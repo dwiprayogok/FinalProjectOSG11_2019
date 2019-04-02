@@ -1,5 +1,6 @@
 package com.project.osg.finalprojectosg11.data.local;
 
+import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -7,6 +8,7 @@ import com.project.osg.finalprojectosg11.model.PeopleDetail;
 
 import java.util.List;
 
+@Dao
 public interface PeopleDao {
 
     @Query("SELECT * FROM people")
