@@ -14,6 +14,9 @@ public interface MovieDao {
     @Query("SELECT * FROM Film")
     List<MovieDetail> getMovie();
 
+    @Query("SELECT * FROM Film where episode_id = 2")
+    List<MovieDetail> getMoviebyEpisode();
+
     @Insert
     void insertMovie(List<MovieDetail> movie);
 }

@@ -1,9 +1,9 @@
 package com.project.osg.finalprojectosg11.view;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,9 +15,8 @@ import android.widget.Toast;
 
 import com.project.osg.finalprojectosg11.Injection;
 import com.project.osg.finalprojectosg11.R;
-import com.project.osg.finalprojectosg11.adapter.MovieAdapter;
+import com.project.osg.finalprojectosg11.adapter.ListMovieAdapter;
 import com.project.osg.finalprojectosg11.adapter.PeopleAdapter;
-import com.project.osg.finalprojectosg11.model.Movie;
 import com.project.osg.finalprojectosg11.model.MovieDetail;
 import com.project.osg.finalprojectosg11.model.PeopleDetail;
 import com.project.osg.finalprojectosg11.navigator.MovieNavigator;
@@ -28,43 +27,35 @@ import com.project.osg.finalprojectosg11.viewmodel.PeopleViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements PeopleNavigator {
-    String TAG = "MainActivity";
-    private PeopleViewModel peopleViewModel;
+public class ListMovieActivity extends AppCompatActivity implements MovieNavigator {
+
+    String TAG = "ListMovieActivity";
+    private MovieViewModel movieViewModel;
     private RecyclerView recyclerview;
 
-    private PeopleAdapter adapter;
-    private List<PeopleDetail> dataListPeople;
+    private ListMovieAdapter adapter;
+    private List<MovieDetail> dataListMovie;
 
-    private PeopleDetail listPeople;
-
+    private MovieDetail movieDetail;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.listmovie_activity);
 
-        recyclerview =findViewById(R.id.rcyclerview);
-        peopleViewModel= new PeopleViewModel(Injection.providePeopleRepository(this), this);
-        dataListPeople= new ArrayList<>();
-        peopleViewModel.setNavigator(this);
-        peopleViewModel.getListPeople();
+        recyclerview =findViewById(R.id.rcyclerview_listmovie);
+        movieViewModel= new MovieViewModel(Injection.provideMovieRepository(this), this);
+        dataListMovie= new ArrayList<>();
+        movieViewModel.setNavigator(this);
+        movieViewModel.getListPeople();
         initAdapter();
     }
-
     private void initAdapter() {
-        adapter = new PeopleAdapter(dataListPeople);
+        adapter = new ListMovieAdapter(dataListMovie);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
         recyclerview.addItemDecoration(new DividerItemDecoration(this,   DividerItemDecoration.VERTICAL));
         recyclerview.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerview, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                listPeople = dataListPeople.get(position);
-                Intent intent = new Intent(getApplicationContext(), ListMovieActivity.class);
-//                intent.putExtra("name", listPeople.getName()); //you can name the keys whatever you like
-
-                startActivity(intent);
-                Log.d(TAG, "onClick: "+ listPeople.getName() );
-                Toast.makeText(getApplicationContext()," Namanya adalah "+ listPeople.getName(),Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -76,15 +67,15 @@ public class MainActivity extends AppCompatActivity implements PeopleNavigator {
     }
 
     @Override
-    public void loadListPeople(List<PeopleDetail> listPeople) {
-        dataListPeople.addAll(listPeople);
+    public void loadListTeam(List<MovieDetail> listPeople) {
+        dataListMovie.addAll(listPeople);
         adapter.notifyDataSetChanged();
 
         Log.i("list People", String.valueOf(listPeople));
     }
 
     @Override
-    public void errorLoadListPeople(String message) {
+    public void errorLoadListMovie(String message) {
         Log.e("ERROR", message);
     }
 
@@ -98,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements PeopleNavigator {
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
 
         private GestureDetector gestureDetector;
-        private ClickListener clickListener;
+        private ListMovieActivity.ClickListener clickListener;
 
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ClickListener clickListener) {
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final ListMovieActivity.ClickListener clickListener) {
             this.clickListener = clickListener;
             gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
                 @Override
