@@ -31,10 +31,10 @@ public class PeopleAdapter extends RecyclerView.Adapter<PeopleAdapter.PeopleHold
     @Override
     public void onBindViewHolder(@NonNull PeopleAdapter.PeopleHolder peopleHolder, int i) {
         PeopleDetail data = listpeople.get(i);
-        peopleHolder.tvPeopleName.setText("Namanya adalah :" + data.getName());
-        peopleHolder.tvGender.setText("Jenis Kelamin :" + data.getGender());
-        peopleHolder.tvHeight.setText("Tingginya adalah :" + data.getHeight());
-        peopleHolder.tvMass.setText("Berat Badan nya adalah :" + data.getMass());
+        peopleHolder.tvPeopleName.setText("Namanya adalah : " + data.getName());
+        peopleHolder.tvGender.setText("Jenis Kelamin : " + data.getGender());
+        peopleHolder.tvHeight.setText("Tingginya adalah : " + data.getHeight() + "Cm");
+        peopleHolder.tvMass.setText("Berat Badan nya adalah : " + data.getMass() + "Kg");
 
     }
 
