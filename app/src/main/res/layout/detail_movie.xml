@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_margin="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/judul"
+        android:text="JUDUL FILM"/>
+
+    <TextView
+        android:layout_below="@+id/judul"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/episode"
+        android:text="EPISODE FILM"/>
+
+
+    <TextView
+        android:layout_below="@+id/episode"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/isi"
+        android:text="ISI FILMNYA DISINI YA GAN"/>
+
+
+    <TextView
+        android:layout_below="@+id/isi"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/producer"
+        android:text="PRODUCER"/>
+
+    <TextView
+        android:layout_below="@+id/producer"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/director"
+        android:text="DIRECTOR"/>
+
+    <TextView
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/director"
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tanggal_release"
+        android:text="12 - 03 - 2019"/>
+
+</RelativeLayout>
